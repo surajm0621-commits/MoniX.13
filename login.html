@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoniX — Login</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0a0e1a;display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:Arial,sans-serif;}
+.box{background:#0d1224;border:1px solid #87CEEB;border-radius:15px;padding:40px;width:90%;max-width:380px;text-align:center;}
+.logo{font-size:32px;font-weight:bold;background:linear-gradient(90deg,#87CEEB,#00E5FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:5px;}
+.sub{color:#aaa;font-size:13px;margin-bottom:25px;}
+input{width:100%;padding:12px;margin:8px 0;background:#0a0e1a;border:1px solid #87CEEB;border-radius:8px;color:white;font-size:15px;outline:none;}
+input:focus{border-color:#00E5FF;}
+.btn{width:100%;padding:12px;background:linear-gradient(90deg,#87CEEB,#00E5FF);color:#0a0e1a;font-weight:bold;font-size:16px;border:none;border-radius:8px;cursor:pointer;margin-top:10px;}
+.error{color:#ff4444;font-size:13px;margin-top:10px;display:none;}
+.footer{color:#555;font-size:12px;margin-top:20px;}
+</style>
+</head>
+<body>
+<div class="box">
+<div class="logo">MoniX</div>
+<p class="sub">Your Personal Cyber Platform</p>
+<input type="text" id="user" placeholder="👤 Username"/>
+<input type="password" id="pass" placeholder="🔒 Password"/>
+<button class="btn" onclick="login()">Login →</button>
+<p class="error" id="err">❌ Wrong credentials!</p>
+<p class="footer">© 2026 MoniX</p>
+</div>
+<script>
+function login(){
+var u=document.getElementById('user').value;
+var p=document.getElementById('pass').value;
+if(u==='suraj'&&p==='monix123'){
+window.location.href='dashboard.html';
+}else{
+document.getElementById('err').style.display='block';
+}}
+</script>
+</body>
+</html>
