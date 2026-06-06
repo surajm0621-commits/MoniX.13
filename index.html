@@ -1,0 +1,102 @@
+index.html<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoniX — Your Personal Cyber Platform</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0a0e1a;color:white;font-family:Arial,sans-serif;}
+nav{background:#0d1224;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #00E5FF;position:sticky;top:0;z-index:100;}
+.logo{font-size:24px;font-weight:bold;background:linear-gradient(90deg,#87CEEB,#00E5FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-links a{color:#aaa;text-decoration:none;margin-left:15px;font-size:14px;}
+.nav-links a:hover{color:#00E5FF;}
+.hero{text-align:center;padding:80px 20px;background:linear-gradient(135deg,#0a0e1a,#0d1224);}
+.hero h1{font-size:52px;font-weight:bold;background:linear-gradient(90deg,#87CEEB,#00E5FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:4px;}
+.hero p{font-size:18px;color:#aaa;margin:20px 0 40px;max-width:500px;margin-left:auto;margin-right:auto;}
+.btn{padding:12px 30px;margin:8px;border-radius:25px;font-size:15px;cursor:pointer;text-decoration:none;display:inline-block;}
+.btn-primary{background:linear-gradient(90deg,#87CEEB,#00E5FF);color:#0a0e1a;font-weight:bold;}
+.btn-secondary{border:2px solid #00E5FF;color:#00E5FF;background:transparent;}
+.stats{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;padding:40px 20px;background:#0d1224;}
+.stat{text-align:center;}
+.stat h2{font-size:32px;background:linear-gradient(90deg,#87CEEB,#00E5FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.stat p{color:#aaa;font-size:14px;}
+.section{padding:60px 20px;text-align:center;}
+.section h2{font-size:28px;background:linear-gradient(90deg,#87CEEB,#00E5FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:30px;}
+.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;}
+.card{background:#0d1224;border:1px solid #87CEEB;border-radius:12px;padding:20px;width:160px;text-align:center;transition:0.3s;}
+.card:hover{border-color:#00E5FF;transform:translateY(-5px);}
+.card-icon{font-size:32px;margin-bottom:10px;}
+.card h3{color:#87CEEB;font-size:13px;}
+.features{background:#0d1224;padding:60px 20px;text-align:center;}
+.features h2{font-size:28px;background:linear-gradient(90deg,#87CEEB,#00E5FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:30px;}
+.feature-cards{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
+.feature-card{background:#0a0e1a;border:1px solid #00E5FF;border-radius:12px;padding:25px;width:200px;text-align:center;}
+.feature-card h3{color:#00E5FF;margin:10px 0;}
+.feature-card p{color:#aaa;font-size:13px;}
+footer{background:#0d1224;padding:30px;text-align:center;border-top:1px solid #00E5FF;}
+footer p{color:#aaa;font-size:13px;}
+footer a{color:#00E5FF;margin:0 10px;text-decoration:none;}
+</style>
+</head>
+<body>
+<nav>
+<div class="logo">MoniX</div>
+<div class="nav-links">
+<a href="tools.html">Tools</a>
+<a href="learn.html">Learn</a>
+<a href="login.html">Login</a>
+</div>
+</nav>
+<div class="hero">
+<h1>MoniX</h1>
+<p>Your Personal Cyber Platform — Learn, Practice & Explore Cybersecurity</p>
+<a href="login.html" class="btn btn-primary">Get Started</a>
+<a href="tools.html" class="btn btn-secondary">Explore Tools</a>
+</div>
+<div class="stats">
+<div class="stat"><h2>20+</h2><p>Tools</p></div>
+<div class="stat"><h2>Free</h2><p>Always</p></div>
+<div class="stat"><h2>100%</h2><p>Ethical</p></div>
+<div class="stat"><h2>24/7</h2><p>Access</p></div>
+</div>
+<div class="section">
+<h2>🔍 Our Tools</h2>
+<div class="cards">
+<div class="card"><div class="card-icon">🌐</div><h3>DNS Lookup</h3></div>
+<div class="card"><div class="card-icon">📡</div><h3>IP Checker</h3></div>
+<div class="card"><div class="card-icon">🔒</div><h3>SSL Checker</h3></div>
+<div class="card"><div class="card-icon">🛡️</div><h3>Password Strength</h3></div>
+<div class="card"><div class="card-icon">⚡</div><h3>Port Checker</h3></div>
+<div class="card"><div class="card-icon">🔑</div><h3>Hash Generator</h3></div>
+<div class="card"><div class="card-icon">📊</div><h3>Base64</h3></div>
+<div class="card"><div class="card-icon">🎯</div><h3>WHOIS</h3></div>
+</div>
+</div>
+<div class="features">
+<h2>Why MoniX?</h2>
+<div class="feature-cards">
+<div class="feature-card"><div>🚀</div><h3>Fast</h3><p>Lightning fast tools</p></div>
+<div class="feature-card"><div>🔒</div><h3>Secure</h3><p>100% safe & ethical</p></div>
+<div class="feature-card"><div>📱</div><h3>Mobile</h3><p>Works on any device</p></div>
+<div class="feature-card"><div>📚</div><h3>Learn</h3><p>Built for learners</p></div>
+</div>
+</div>
+<div class="section">
+<h2>📚 Learning Path</h2>
+<div class="cards">
+<div class="card"><div class="card-icon">🐧</div><h3>Linux Basics</h3></div>
+<div class="card"><div class="card-icon">🌐</div><h3>Networking</h3></div>
+<div class="card"><div class="card-icon">🐍</div><h3>Python</h3></div>
+<div class="card"><div class="card-icon">🎯</div><h3>CTF Challenges</h3></div>
+</div>
+</div>
+<footer>
+<p style="margin-bottom:15px;">© 2026 MoniX — All Rights Reserved</p>
+<a href="#">About</a>
+<a href="#">Privacy</a>
+<a href="#">Terms</a>
+<a href="#">Contact</a>
+</footer>
+</body>
+</html>
