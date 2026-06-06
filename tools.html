@@ -6,21 +6,28 @@
 <title>MoniX — Tools</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:#0a0e1a;color:white;font-family:Arial,sans-serif;}
+body{background:#080b18;color:white;font-family:Arial,sans-serif;}
 nav{background:#0d1224;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #00E5FF;position:sticky;top:0;}
 .logo{font-size:22px;font-weight:bold;background:linear-gradient(90deg,#87CEEB,#00E5FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .nav-links a{color:#aaa;text-decoration:none;margin-left:15px;font-size:14px;}
-.hero{text-align:center;padding:40px 20px;}
-.hero h1{background:linear-gradient(90deg,#87CEEB,#00E5FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:28px;}
-.hero p{color:#aaa;margin-top:10px;}
-.section{padding:30px 20px;}
-.section h2{color:#87CEEB;font-size:18px;margin-bottom:15px;border-left:3px solid #00E5FF;padding-left:10px;}
-.tool-box{background:#0d1224;border:1px solid #87CEEB;border-radius:12px;padding:20px;margin-bottom:15px;}
-.tool-box h3{color:#00E5FF;margin-bottom:15px;font-size:16px;}
-input,select{width:100%;padding:10px;background:#0a0e1a;border:1px solid #87CEEB;border-radius:8px;color:white;font-size:14px;outline:none;margin-bottom:10px;}
-.run-btn{padding:10px 20px;background:linear-gradient(90deg,#87CEEB,#00E5FF);color:#0a0e1a;border:none;border-radius:8px;font-weight:bold;cursor:pointer;font-size:14px;}
-.result{background:#000;border:1px solid #00E5FF;border-radius:8px;padding:15px;margin-top:10px;font-family:monospace;font-size:13px;color:#00E5FF;min-height:60px;display:none;word-break:break-all;}
-footer{background:#0d1224;padding:20px;text-align:center;border-top:1px solid #00E5FF;color:#aaa;font-size:13px;}
+.hero{text-align:center;padding:40px 20px;background:linear-gradient(135deg,#080b18,#0d1224);}
+.hero h1{background:linear-gradient(90deg,#87CEEB,#00E5FF,#9b59b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:30px;}
+.hero p{color:#aaa;margin-top:10px;font-size:14px;}
+.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:20px;}
+.tab{padding:8px 18px;border-radius:20px;border:1px solid #9b59b6;color:#aaa;cursor:pointer;font-size:13px;background:transparent;}
+.tab.active{background:linear-gradient(90deg,#9b59b6,#00E5FF);color:#0a0e1a;font-weight:bold;border:none;}
+.section{padding:20px;display:none;}
+.section.active{display:block;}
+.section-title{color:#9b59b6;font-size:16px;margin-bottom:15px;border-left:3px solid #00E5FF;padding-left:10px;}
+.tool-box{background:linear-gradient(135deg,#0d1224,#13182e);border:1px solid #9b59b6;border-radius:12px;padding:20px;margin-bottom:15px;}
+.tool-box h3{color:#00E5FF;margin-bottom:12px;font-size:15px;}
+input,select,textarea{width:100%;padding:10px;background:#080b18;border:1px solid #9b59b6;border-radius:8px;color:white;font-size:14px;outline:none;margin-bottom:10px;}
+input:focus,select:focus{border-color:#00E5FF;}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;}
+.run-btn{padding:10px 20px;background:linear-gradient(90deg,#9b59b6,#00E5FF);color:#0a0e1a;border:none;border-radius:8px;font-weight:bold;cursor:pointer;font-size:13px;}
+.outline-btn{padding:10px 20px;background:transparent;border:1px solid #00E5FF;color:#00E5FF;border-radius:8px;cursor:pointer;font-size:13px;}
+.result{background:#000;border:1px solid #00E5FF;border-radius:8px;padding:15px;margin-top:12px;font-family:monospace;font-size:13px;color:#00E5FF;min-height:60px;display:none;word-break:break-all;white-space:pre-wrap;}
+footer{background:#0d1224;padding:20px;text-align:center;border-top:1px solid #9b59b6;color:#aaa;font-size:13px;margin-top:20px;}
 footer a{color:#00E5FF;margin:0 8px;text-decoration:none;}
 </style>
 </head>
@@ -33,49 +40,43 @@ footer a{color:#00E5FF;margin:0 8px;text-decoration:none;}
 </div>
 </nav>
 <div class="hero">
-<h1>🛠️ MoniX Tools</h1>
-<p>Powerful cybersecurity tools — Free & Ethical</p>
+<h1>⚡ MoniX Tools</h1>
+<p>Professional Cybersecurity Tools — Free & Ethical</p>
 </div>
-
-<!-- DNS Lookup -->
-<div class="section">
-<h2>🌐 Information Gathering</h2>
+<div class="tabs">
+<div class="tab active" onclick="showTab('info',this)">🔍 Info</div>
+<div class="tab" onclick="showTab('security',this)">🔒 Security</div>
+<div class="tab" onclick="showTab('dev',this)">🛠️ Dev</div>
+<div class="tab" onclick="showTab('network',this)">🌐 Network</div>
+</div>
+<div class="section active" id="info">
+<p class="section-title">🔍 Information Gathering</p>
 <div class="tool-box">
 <h3>🌐 DNS Lookup</h3>
 <input type="text" id="dns-input" placeholder="Enter domain (e.g. google.com)"/>
-<button class="run-btn" onclick="dnsLookup()">Run DNS Lookup</button>
+<button class="run-btn" onclick="dnsLookup()">Run Lookup</button>
 <div class="result" id="dns-result"></div>
 </div>
-
-<!-- IP Checker -->
 <div class="tool-box">
 <h3>📡 My IP Address</h3>
 <button class="run-btn" onclick="getIP()">Get My IP</button>
 <div class="result" id="ip-result"></div>
 </div>
-
-<!-- WHOIS -->
 <div class="tool-box">
 <h3>🎯 WHOIS Lookup</h3>
-<input type="text" id="whois-input" placeholder="Enter domain (e.g. google.com)"/>
+<input type="text" id="whois-input" placeholder="Enter domain"/>
 <button class="run-btn" onclick="whoisLookup()">WHOIS Lookup</button>
 <div class="result" id="whois-result"></div>
 </div>
 </div>
-
-<!-- Security Tools -->
-<div class="section">
-<h2>🔒 Security Tools</h2>
-
-<!-- Password Strength -->
+<div class="section" id="security">
+<p class="section-title">🔒 Security Tools</p>
 <div class="tool-box">
 <h3>🛡️ Password Strength Checker</h3>
-<input type="text" id="pass-input" placeholder="Enter password to check"/>
+<input type="text" id="pass-input" placeholder="Enter password"/>
 <button class="run-btn" onclick="checkPassword()">Check Strength</button>
 <div class="result" id="pass-result"></div>
 </div>
-
-<!-- Hash Generator -->
 <div class="tool-box">
 <h3>🔑 Hash Generator</h3>
 <input type="text" id="hash-input" placeholder="Enter text to hash"/>
@@ -86,146 +87,174 @@ footer a{color:#00E5FF;margin:0 8px;text-decoration:none;}
 <button class="run-btn" onclick="generateHash()">Generate Hash</button>
 <div class="result" id="hash-result"></div>
 </div>
-</div>
-
-<!-- Developer Tools -->
-<div class="section">
-<h2>🛠️ Developer Tools</h2>
-
-<!-- Base64 -->
 <div class="tool-box">
-<h3>📊 Base64 Encoder/Decoder</h3>
-<input type="text" id="b64-input" placeholder="Enter text"/>
-<button class="run-btn" onclick="b64encode()">Encode</button>
-<button class="run-btn" style="margin-left:10px;background:#0a0e1a;border:1px solid #00E5FF;color:#00E5FF;" onclick="b64decode()">Decode</button>
-<div class="result" id="b64-result"></div>
-</div>
-
-<!-- Password Generator -->
-<div class="tool-box">
-<h3>🎲 Random Password Generator</h3>
-<input type="number" id="pass-len" placeholder="Password length (e.g. 16)" min="8" max="32"/>
-<button class="run-btn" onclick="genPassword()">Generate Password</button>
+<h3>🎲 Password Generator</h3>
+<input type="number" id="pass-len" placeholder="Length (8-32)" min="8" max="32"/>
+<button class="run-btn" onclick="genPassword()">Generate</button>
 <div class="result" id="gen-result"></div>
 </div>
 </div>
-
+<div class="section" id="dev">
+<p class="section-title">🛠️ Developer Tools</p>
+<div class="tool-box">
+<h3>📊 Base64 Encoder/Decoder</h3>
+<input type="text" id="b64-input" placeholder="Enter text"/>
+<div class="btn-row">
+<button class="run-btn" onclick="b64encode()">Encode</button>
+<button class="outline-btn" onclick="b64decode()">Decode</button>
+</div>
+<div class="result" id="b64-result"></div>
+</div>
+<div class="tool-box">
+<h3>🔗 URL Encoder/Decoder</h3>
+<input type="text" id="url-input" placeholder="Enter URL or text"/>
+<div class="btn-row">
+<button class="run-btn" onclick="urlEncode()">Encode</button>
+<button class="outline-btn" onclick="urlDecode()">Decode</button>
+</div>
+<div class="result" id="url-result"></div>
+</div>
+<div class="tool-box">
+<h3>📝 JSON Formatter</h3>
+<textarea id="json-input" placeholder="Paste JSON here..." rows="4"></textarea>
+<button class="run-btn" onclick="formatJSON()">Format JSON</button>
+<div class="result" id="json-result"></div>
+</div>
+</div>
+<div class="section" id="network">
+<p class="section-title">🌐 Network Tools</p>
+<div class="tool-box">
+<h3>📶 Speed Test</h3>
+<button class="run-btn" onclick="speedTest()">Start Test</button>
+<div class="result" id="speed-result"></div>
+</div>
+<div class="tool-box">
+<h3>🔍 Header Checker</h3>
+<input type="text" id="header-input" placeholder="Enter URL"/>
+<button class="run-btn" onclick="checkHeaders()">Check</button>
+<div class="result" id="header-result"></div>
+</div>
+</div>
 <footer>
 <p>© 2026 MoniX — For ethical use only</p>
 <a href="index.html">Home</a>
 <a href="login.html">Login</a>
 </footer>
-
 <script>
-// DNS Lookup
+function showTab(tab,el){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.getElementById(tab).classList.add('active');
+el.classList.add('active');
+}
 function dnsLookup(){
 var d=document.getElementById('dns-input').value.trim();
 var r=document.getElementById('dns-result');
-if(!d){r.style.display='block';r.textContent='Please enter a domain!';return;}
-r.style.display='block';
-r.textContent='Looking up '+d+'...';
+if(!d){r.style.display='block';r.textContent='Enter a domain!';return;}
+r.style.display='block';r.textContent='Looking up '+d+'...';
 fetch('https://dns.google/resolve?name='+d+'&type=A')
-.then(x=>x.json())
-.then(data=>{
-if(data.Answer){
-var out='DNS Results for: '+d+'\n';
-out+='─────────────────\n';
-data.Answer.forEach(a=>{out+='IP: '+a.data+'\n';});
-r.textContent=out;
-}else{r.textContent='No DNS records found for: '+d;}
-}).catch(()=>{r.textContent='Error! Check domain name.';});
+.then(x=>x.json()).then(data=>{
+if(data.Answer){var out='DNS: '+d+'\n──────────\n';
+data.Answer.forEach(a=>{out+='IP: '+a.data+'\n';});r.textContent=out;}
+else{r.textContent='No records found!';}
+}).catch(()=>{r.textContent='Error!';});
 }
-
-// Get IP
 function getIP(){
 var r=document.getElementById('ip-result');
-r.style.display='block';
-r.textContent='Fetching your IP...';
-fetch('https://api.ipify.org?format=json')
-.then(x=>x.json())
-.then(d=>{
-fetch('https://ipapi.co/'+d.ip+'/json/')
-.then(x=>x.json())
-.then(info=>{
-r.textContent='Your IP: '+d.ip+'\nCountry: '+(info.country_name||'N/A')+'\nCity: '+(info.city||'N/A')+'\nISP: '+(info.org||'N/A');
-});
-}).catch(()=>{r.textContent='Could not fetch IP!';});
+r.style.display='block';r.textContent='Fetching...';
+fetch('https://api.ipify.org?format=json').then(x=>x.json()).then(d=>{
+fetch('https://ipapi.co/'+d.ip+'/json/').then(x=>x.json()).then(info=>{
+r.textContent='IP: '+d.ip+'\nCountry: '+(info.country_name||'N/A')+'\nCity: '+(info.city||'N/A')+'\nISP: '+(info.org||'N/A');
+});}).catch(()=>{r.textContent='Error!';});
 }
-
-// WHOIS
 function whoisLookup(){
 var d=document.getElementById('whois-input').value.trim();
 var r=document.getElementById('whois-result');
-if(!d){r.style.display='block';r.textContent='Please enter a domain!';return;}
+if(!d){r.style.display='block';r.textContent='Enter domain!';return;}
 r.style.display='block';
-r.textContent='WHOIS for: '+d+'\n─────────────────\nNote: Full WHOIS requires backend server.\nVisit: https://www.whois.com/whois/'+d+'\n\nDNS Info:';
-fetch('https://dns.google/resolve?name='+d+'&type=NS')
-.then(x=>x.json())
-.then(data=>{
-if(data.Answer){data.Answer.forEach(a=>{r.textContent+='\nNameserver: '+a.data;});}
+r.textContent='WHOIS: '+d+'\nVisit: https://www.whois.com/whois/'+d;
+fetch('https://dns.google/resolve?name='+d+'&type=NS').then(x=>x.json()).then(data=>{
+if(data.Answer){data.Answer.forEach(a=>{r.textContent+='\nNS: '+a.data;});}
 });
 }
-
-// Password Strength
 function checkPassword(){
 var p=document.getElementById('pass-input').value;
 var r=document.getElementById('pass-result');
 r.style.display='block';
-var score=0;
-var tips=[];
-if(p.length>=8)score++;else tips.push('Use 8+ characters');
+var score=0;var tips=[];
+if(p.length>=8)score++;else tips.push('8+ characters');
 if(p.length>=12)score++;
-if(/[A-Z]/.test(p))score++;else tips.push('Add uppercase letters');
-if(/[a-z]/.test(p))score++;else tips.push('Add lowercase letters');
-if(/[0-9]/.test(p))score++;else tips.push('Add numbers');
-if(/[^A-Za-z0-9]/.test(p))score++;else tips.push('Add special characters (!@#$)');
-var strength=['Very Weak','Weak','Fair','Good','Strong','Very Strong'];
-var colors=['#ff4444','#ff8800','#ffcc00','#88cc00','#00cc44','#00E5FF'];
-r.style.color=colors[score]||'#00E5FF';
-r.textContent='Strength: '+strength[score]+' ('+score+'/6)\n';
-if(tips.length>0){r.textContent+='\nTips:\n';tips.forEach(t=>{r.textContent+='• '+t+'\n';});}
+if(/[A-Z]/.test(p))score++;else tips.push('Uppercase');
+if(/[a-z]/.test(p))score++;else tips.push('Lowercase');
+if(/[0-9]/.test(p))score++;else tips.push('Numbers');
+if(/[^A-Za-z0-9]/.test(p))score++;else tips.push('Special chars');
+var s=['Very Weak 💀','Weak 😟','Fair 😐','Good 👍','Strong 💪','Very Strong 🔥'];
+r.textContent='Strength: '+s[score]+'\n';
+if(tips.length)r.textContent+='\nAdd: '+tips.join(', ');
 }
-
-// Hash Generator
 async function generateHash(){
 var t=document.getElementById('hash-input').value;
 var type=document.getElementById('hash-type').value;
 var r=document.getElementById('hash-result');
 r.style.display='block';
-if(!t){r.textContent='Please enter text!';return;}
-var enc=new TextEncoder();
-var data=enc.encode(t);
-var hash=await crypto.subtle.digest(type,data);
-var arr=Array.from(new Uint8Array(hash));
-var hex=arr.map(b=>b.toString(16).padStart(2,'0')).join('');
-r.textContent=type+' Hash:\n'+hex;
+if(!t){r.textContent='Enter text!';return;}
+var hash=await crypto.subtle.digest(type,new TextEncoder().encode(t));
+var hex=Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('');
+r.textContent=type+':\n'+hex;
 }
-
-// Base64
-function b64encode(){
-var t=document.getElementById('b64-input').value;
-var r=document.getElementById('b64-result');
-r.style.display='block';
-try{r.textContent='Encoded:\n'+btoa(t);}
-catch(e){r.textContent='Error encoding!';}
-}
-function b64decode(){
-var t=document.getElementById('b64-input').value;
-var r=document.getElementById('b64-result');
-r.style.display='block';
-try{r.textContent='Decoded:\n'+atob(t);}
-catch(e){r.textContent='Invalid Base64!';}
-}
-
-// Password Generator
 function genPassword(){
 var len=parseInt(document.getElementById('pass-len').value)||16;
 var r=document.getElementById('gen-result');
 r.style.display='block';
 var chars='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
 var pass='';
-for(var i=0;i<len;i++){pass+=chars.charAt(Math.floor(Math.random()*chars.length));}
-r.textContent='Generated Password:\n'+pass+'\n\nLength: '+len+' characters';
+for(var i=0;i<len;i++)pass+=chars[Math.floor(Math.random()*chars.length)];
+r.textContent='Password:\n'+pass;
+}
+function b64encode(){
+var r=document.getElementById('b64-result');
+r.style.display='block';
+try{r.textContent='Encoded:\n'+btoa(document.getElementById('b64-input').value);}
+catch(e){r.textContent='Error!';}
+}
+function b64decode(){
+var r=document.getElementById('b64-result');
+r.style.display='block';
+try{r.textContent='Decoded:\n'+atob(document.getElementById('b64-input').value);}
+catch(e){r.textContent='Invalid Base64!';}
+}
+function urlEncode(){
+var r=document.getElementById('url-result');
+r.style.display='block';
+r.textContent='Encoded:\n'+encodeURIComponent(document.getElementById('url-input').value);
+}
+function urlDecode(){
+var r=document.getElementById('url-result');
+r.style.display='block';
+try{r.textContent='Decoded:\n'+decodeURIComponent(document.getElementById('url-input').value);}
+catch(e){r.textContent='Invalid!';}
+}
+function formatJSON(){
+var r=document.getElementById('json-result');
+r.style.display='block';
+try{r.textContent=JSON.stringify(JSON.parse(document.getElementById('json-input').value),null,2);}
+catch(e){r.textContent='Invalid JSON!';}
+}
+function speedTest(){
+var r=document.getElementById('speed-result');
+r.style.display='block';r.textContent='Testing...';
+var start=Date.now();
+fetch('https://api.ipify.org?format=json').then(()=>{
+var ms=Date.now()-start;
+r.textContent='Latency: '+ms+'ms\nVisit fast.com for full test';
+});
+}
+function checkHeaders(){
+var u=document.getElementById('header-input').value.trim();
+var r=document.getElementById('header-result');
+r.style.display='block';
+if(!u){r.textContent='Enter URL!';return;}
+r.textContent='Use Termux:\ncurl -I '+u+'\n\nOr: https://securityheaders.com/?q='+encodeURIComponent(u);
 }
 </script>
 </body>
